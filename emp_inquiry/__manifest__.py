@@ -6,7 +6,7 @@
     'author':'Bista solutions',
     'depends':['base','website'],
     'data':[
-
+        'views/website_view.xml',
     ],
 
     'installable':True,
