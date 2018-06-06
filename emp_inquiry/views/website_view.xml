@@ -17,16 +17,19 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Customer No:-</label>
                                     <div class="col-sm-6">
-                                        <input id="customer_no" name="customer_no" type="int" class="form-control" placeholder="Number..." required="True"/>
+                                        <input id="customer_no" name="customer_no" type="number" class="form-control"
+                                               placeholder="Number..." required="True" pattern="^[0-9]+[0-9]${7}"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Name:-</label>
                                     <div class="col-sm-3">
-                                        <input id="first_name" name="first_name" class="form-control align-left" placeholder="First Name" required="True"/>
+                                        <input id="first_name" name="first_name" class="form-control align-left"
+                                               placeholder="First Name" required="True" pattern="^[A-Za-z]+[a-zA-Z]$"/>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input id="last_name" name="last_name" class="form-control align-right" placeholder="Last Name" required="True"/>
+                                        <input id="last_name" name="last_name" class="form-control align-right"
+                                               placeholder="Last Name" required="True" pattern="^[A-Za-z]+[a-zA-Z]$"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
@@ -59,8 +62,8 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Security No:-</label>
                                     <div class="col-sm-6">
-                                        <input id="security_no" name="security_no" min="9" max="9"
-                                               type="text" class="form-control" placeholder="Security no" required="True"/>
+                                        <input id="security_no" name="security_no" pattern="[0-9]{9}" type="text"
+                                               class="form-control" placeholder="Security no" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
@@ -84,13 +87,15 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Account No:-</label>
                                     <div class="col-sm-6">
-                                        <input id="account_no" name="account_no" type="text" class="form-control" placeholder="Account No" required="True"/>
+                                        <input id="account_no" name="account_no" type="text" class="form-control"
+                                               placeholder="Account No" required="True" pattern="^[0-9]+[0-9]$"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">IFSC Code:-</label>
                                     <div class="col-sm-6">
-                                        <input id="ifsc_code" name="ifsc_code" type="text" class="form-control" placeholder="IFSC Code" required="True"/>
+                                        <input id="ifsc_code" name="ifsc_code" type="text" class="form-control"
+                                               placeholder="IFSC Code" required="True" pattern="[A-Za-z]+/[a-zA-Z]+[0-9]"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
