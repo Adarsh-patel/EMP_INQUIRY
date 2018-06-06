@@ -12,66 +12,66 @@
                             </h1>
                         </div>
                         <div class="panel-body text-center">
-                            <form class="form-style col-md-12">
+                            <form class="form-style col-md-12" action="/page/create_inquiry" method="post">
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Customer No:-</label>
                                     <div class="col-sm-6">
-                                        <input name="customer_no" type="int" class="form-control" placeholder="Number..." required="True"/>
+                                        <input id="customer_no" name="customer_no" type="int" class="form-control" placeholder="Number..." required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Name:-</label>
                                     <div class="col-sm-3">
-                                        <input name="first_name" class="form-control align-left" placeholder="First Name" required="True"/>
+                                        <input id="first_name" name="first_name" class="form-control align-left" placeholder="First Name" required="True"/>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input name="last_name" class="form-control align-right" placeholder="Last Name" required="True"/>
+                                        <input id="last_name" name="last_name" class="form-control align-right" placeholder="Last Name" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Address:-</label>
                                     <div class="col-sm-6">
-                                        <input name="street" class="form-control" placeholder="Street" required="True"/>
+                                        <input id="street" name="street" class="form-control" placeholder="Street" required="True"/>
                                     </div><br/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2"></label>
                                     <div class="col-sm-3">
-                                        <input name="city" class="form-control align-left" placeholder="City" required="True"/>
+                                        <input id="city" name="city" class="form-control align-left" placeholder="City" required="True"/>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input name="country" class="form-control align-right" placeholder="Country" required="True"/>
+                                        <input id="country" name="country" class="form-control align-right" placeholder="Country" required="True"/>
                                     </div>
                                 </div><br/><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Date Of Birth:-</label>
                                     <div class="col-sm-6">
-                                        <input name="dob" type="date" class="form-control" placeholder="Birth Date" required="True"/>
+                                        <input id="dob" name="dob" type="date" class="form-control" placeholder="Birth Date" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Proof ID:-</label>
                                     <div class="col-sm-6">
-                                        <input name="proof_id" type="text" class="form-control" placeholder="Id" required="True"/>
+                                        <input id="proof_id" name="proof_id" type="text" class="form-control" placeholder="Id" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Security No:-</label>
                                     <div class="col-sm-6">
-                                        <input name="security_no" min="9" max="9"
+                                        <input id="security_no" name="security_no" min="9" max="9"
                                                type="text" class="form-control" placeholder="Security no" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Employer Name:-</label>
                                     <div class="col-sm-6">
-                                        <input name="employer_name" type="text" class="form-control" placeholder="Employer Name" required="True"/>
+                                        <input id="employer_name" name="employer_name" type="text" class="form-control" placeholder="Employer Name" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Employer Income:-</label>
                                     <div class="col-sm-6">
-                                        <input name="employer_income" type="text" class="form-control" placeholder="Employer Income" required="True"/>
+                                        <input id="employer_income" name="employer_income" type="text" class="form-control" placeholder="Employer Income" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
@@ -83,19 +83,19 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Account No:-</label>
                                     <div class="col-sm-6">
-                                        <input name="account_no" type="text" class="form-control" placeholder="Account No" required="True"/>
+                                        <input id="account_no" name="account_no" type="text" class="form-control" placeholder="Account No" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">IFSC Code:-</label>
                                     <div class="col-sm-6">
-                                        <input name="ifsc_code" type="text" class="form-control" placeholder="IFSC Code" required="True"/>
+                                        <input id="ifsc_code" name="ifsc_code" type="text" class="form-control" placeholder="IFSC Code" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Notes:-</label>
                                     <div class="col-sm-6">
-                                        <input name="notes" type="text" class="form-control" placeholder="Notes" required="True"/>
+                                        <input id="notes" name="notes" type="text" class="form-control" placeholder="Notes" required="True"/>
                                     </div>
                                 </div><br/><br/>
 
@@ -106,40 +106,7 @@
                                         <button type="reset" class="btn btn-default" value="reset">Cancel</button>
                                     </div>
                                 </div>
-
-
-
-
-
-
                             </form>
-                            <!--<form>-->
-                            <!--<div class="container">-->
-                            <!--<h1>Sign Up</h1>-->
-                            <!--<p>Please fill in this form to create an account.</p>-->
-                            <!--<div>-->
-                            <!--<label for="email"><b>Email</b></label>-->
-                            <!--<input type="text" placeholder="Enter Email" name="email"/>-->
-                            <!--</div>-->
-
-                            <!--<label for="psw"><b>Password</b></label>-->
-                            <!--<input type="password" placeholder="Enter Password" name="psw" />-->
-
-                            <!--<label for="psw-repeat"><b>Repeat Password</b></label>-->
-                            <!--<input type="password" placeholder="Repeat Password" name="psw-repeat"/>-->
-
-                            <!--<label>-->
-                            <!--<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"/>Remember me-->
-                            <!--</label>-->
-
-                            <!--<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms and Privacy</a>.</p>-->
-
-                            <!--<div class="clearfix">-->
-                            <!--<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>-->
-                            <!--<button type="submit" class="signupbtn">Sign Up</button>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</form>-->
                         </div>
                     </div>
                 </div>
