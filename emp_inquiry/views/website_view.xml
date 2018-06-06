@@ -13,6 +13,7 @@
                         </div>
                         <div class="panel-body text-center">
                             <form class="form-style col-md-12" action="/page/create_inquiry" method="post">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Customer No:-</label>
                                     <div class="col-sm-6">

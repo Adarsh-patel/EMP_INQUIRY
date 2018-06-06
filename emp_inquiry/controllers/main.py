@@ -10,7 +10,7 @@ class inquiry_from(http.Controller):
         print('\n\n\n Hello Website')
         return request.render('emp_inquiry.emp_form')
 
-    @http.route('/emp/create_inquiry',type='http',auth='public',website='True')
+    @http.route('/page/create_inquiry',type='http',auth='public',website='True')
     def create_inquiry(self, **post):
         cutomer_no = str(post.get('cutomer_no'))
         first_name = str(post.get('first_name'))
