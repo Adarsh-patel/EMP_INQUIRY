@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  
+    <record id="emp_inquiry_view_tree" model="ir.ui.view">
+        <field name="name">view.emp.inquiry</field>
+        <field name="model">emp.inquiry</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="customer_no"/>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="street"/>
+                <field name="city"/>
+                <field name="country"/>
+                <field name="dob"/>
+				<field name="proof_id"/>
+                <field name="security_no"/>
+                <field name="employer_name"/>
+                <field name="employer_income"/>
+                <field name="account_no"/>
+                <field name="ifsc_code"/>
+                <field name="notes"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="act_emp_inquiry" model="ir.actions.act_window">
+        <field name="name">Employee Inquiry</field>
+        <field name="res_model">emp.inquiry</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,from</field>
+    </record>
+
+    <menuitem id="menu_emp_inq" name="Employee Inquires"/>
+    <menuitem id="menu_emp_inq_main" name="EI" parent="menu_emp_inq"/>
+    <menuitem id="menu_emp_inquiry" parent="menu_emp_inq_main" action="act_emp_inquiry"/>
+
+</odoo>
