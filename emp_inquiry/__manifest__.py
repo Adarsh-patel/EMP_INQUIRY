@@ -7,6 +7,7 @@
     'depends':['base','website'],
     'data':[
         'views/website_view.xml',
+        'views/inquiry_view.xml',
     ],
 
     'installable':True,
