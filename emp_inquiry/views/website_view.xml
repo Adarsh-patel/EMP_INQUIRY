@@ -3,6 +3,7 @@
     <data>
         <template id="emp_form">
             <t t-call="website.layout">
+                <script type="text/javascript" src="/emp_inquiry/static/src/js/form_validation.js"/>
                 <div class="container">
                     <div class="panel reg_form_panel">
                         <div class="panel-header text-center">
@@ -95,7 +96,7 @@
                                     <label class="control-label col-sm-2">IFSC Code:-</label>
                                     <div class="col-sm-6">
                                         <input id="ifsc_code" name="ifsc_code" type="text" class="form-control"
-                                               placeholder="IFSC Code" required="True" pattern="[A-Za-z]+/[a-zA-Z]+[0-9]"/>
+                                               placeholder="IFSC Code" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
