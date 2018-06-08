@@ -19,6 +19,7 @@ class inquiry_from(http.Controller):
         city = str(post.get('city'))
         country = str(post.get('country'))
         dob = post.get('dob')
+        print ("\n\ntype and date",type(dob),dob)
         proof_id = str(post.get('proof_id'))
         security_no = str(post.get('security_no'))
         employer_name = str(post.get('employer_name'))
