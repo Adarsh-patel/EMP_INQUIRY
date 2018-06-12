@@ -5,11 +5,11 @@ from xlrd import open_workbook
 import xlwt
 
 class EMPInquiry(models.Model):
-    
+
     _name = "emp.inquiry"
-    
+
     _description = 'Employees Inquiry'
-    
+
     customer_no = fields.Integer(string='Customer No.', required=True)
     first_name = fields.Char(string='First Name', index=True, required=True)
     last_name = fields.Char(string='Last Name', required=True)
@@ -24,13 +24,13 @@ class EMPInquiry(models.Model):
     account_no = fields.Integer(string='Account No.', required=True)
     ifsc_code = fields.Char(string='IFSC CODE', required=True)
     notes = fields.Text(string="Notes", required=True)
-    
+
     @api.model
     def create(self, vals):
         dob_str = vals.get('dob')
         dob_date = datetime.datetime.strptime(dob_str, "%Y-%m-%d")
         vals.update({'dob':dob_date.date()})
-        
+
         file_path = "/home/adarsh/workspace/custom_v11/EMP_INQUIRY/emp_inquiry/data/emp_data.xls"
         book_ro = open_workbook(file_path)
         sheet_ro = book_ro.sheet_by_index(0)
@@ -54,23 +54,23 @@ class EMPInquiry(models.Model):
             sheet_wo.write(row_no,11,'Account No', style = cust_style)
             sheet_wo.write(row_no,12,'IFSC CODE', style = cust_style)
             sheet_wo.write(row_no,13,'Notes', style = cust_style)
-            
-            self.add_data_xls(file_path, book_copy, sheet_wo, row_no + 1, vals)            
+
+            self.add_data_xls(file_path, book_copy, sheet_wo, row_no + 1, vals)
         else:
             book_ro = open_workbook(file_path, formatting_info=True)
             sheet_ro = book_ro.sheet_by_index(0)
             book_copy = copy(book_ro)
             sheet_wo = book_copy.get_sheet(0)
             row_no = sheet_ro.nrows
-            
+
             self.add_data_xls(file_path, book_copy, sheet_wo, row_no, vals)
-        
-            
+
+
         result = super(EMPInquiry, self).create(vals)
         return result
-    
-    
-    
+
+
+
     def add_data_xls(self, file_path, book_copy, sheet_wo, row_no, vals):
             sheet_wo.write(row_no,0,vals.get('customer_no'))
             sheet_wo.write(row_no,1,vals.get('first_name'))
@@ -86,5 +86,5 @@ class EMPInquiry(models.Model):
             sheet_wo.write(row_no,11,vals.get('account_no'))
             sheet_wo.write(row_no,12,vals.get('ifsc_code'))
             sheet_wo.write(row_no,13,vals.get('notes'))
-            
+
             book_copy.save(file_path)

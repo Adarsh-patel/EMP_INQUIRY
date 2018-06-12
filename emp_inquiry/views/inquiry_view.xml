@@ -2,6 +2,7 @@
 <odoo>
     <data>
 
+        <!-- Tree view for Employee Inquiry -->
         <record id="emp_inquiry_view_tree" model="ir.ui.view">
             <field name="name">view.emp.inquiry</field>
             <field name="model">emp.inquiry</field>
@@ -24,6 +25,8 @@
                 </tree>
             </field>
         </record>
+
+        <!-- Graph View for Employee Inquiry -->
         <record id="emp_inquiry_graph_view" model="ir.ui.view">
             <field name="name">emp.inquiry.graph.view</field>
             <field name="model">emp.inquiry</field>
@@ -35,6 +38,8 @@
                 </graph>
             </field>
         </record>
+
+        <!-- Pivot View for Employee Inquiry -->
         <record id="emp_inquiry_pivot_view" model="ir.ui.view">
             <field name="name">emp.inquiry.pivot.view</field>
             <field name="model">emp.inquiry</field>
@@ -47,16 +52,65 @@
             </field>
         </record>
 
+        <!-- Form view for File Configuration -->
+        <record id="emp_inquiry_file_config_view_form" model="ir.ui.view">
+            <field name="name">view.emp.inquiry.file.config.form</field>
+            <field name="model">emp.inquiry.file.config</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+       						<field name="config_name"/>
+                            <field name="config_date" readonly="1"/>
+                            <field name="file_path"/>
+                            <field name="file_name"/>
+                            <field name="active_file"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+		<!-- Tree view for File Configuration -->
+		<record id="emp_inquiry_file_config_view_tree" model="ir.ui.view">
+			<field name="name">view.emp.inquiry.file.config.tree</field>
+			<field name="model">emp.inquiry.file.config</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="config_name"/>
+					<field name="config_date"/>
+					<field name="file_path"/>
+					<field name="file_name"/>
+					<field name="active_file"/>
+				</tree>
+			</field>
+		</record>
+
+        <!-- Action for Employee Inquiry -->
         <record id="act_emp_inquiry" model="ir.actions.act_window">
             <field name="name">Employee Inquiry</field>
             <field name="res_model">emp.inquiry</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form,pivot,graph</field>
         </record>
+        
+        <!-- Action for File Configuration -->
+        <record id="act_emp_inquiry_file_config" model="ir.actions.act_window">
+            <field name="name">Configuration Setting</field>
+            <field name="res_model">emp.inquiry.file.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
+        <!-- Menu for Employee Inquiry -->
         <menuitem id="menu_emp_inq" name="Employee Inquires"/>
         <menuitem id="menu_emp_inq_main" name="EI" parent="menu_emp_inq"/>
         <menuitem id="menu_emp_inquiry" parent="menu_emp_inq_main"
                   action="act_emp_inquiry"/>
+                  
+         <!-- Menu for Employee Inquiry -->
+        <menuitem id="menu_emp_inquiry_file_config" parent="menu_emp_inq_main"
+                  action="act_emp_inquiry_file_config"/>
+                  
     </data>
 </odoo>
