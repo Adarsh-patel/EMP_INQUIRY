@@ -8,8 +8,8 @@
     'data':[
         'views/website_view.xml',
         'views/inquiry_view.xml',
+        'data/default_config_data.xml',
     ],
-
     'installable':True,
     'auto-install':False,
     'application':False,
