@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		<function
+            id="function_first_config_item"
+            model="emp.inquiry.file.config"
+            name="load_default_config_item"/>
+	</data>
+</odoo>
