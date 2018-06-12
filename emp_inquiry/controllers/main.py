@@ -12,7 +12,7 @@ class inquiry_from(http.Controller):
 
     @http.route('/page/create_inquiry',type='http',auth='public',website='True')
     def create_inquiry(self, **post):
-        customer_no = int(post.get('customer_no'))
+        customer_no = str(post.get('customer_no'))
         first_name = str(post.get('first_name'))
         last_name = str(post.get('last_name'))
         street = str(post.get('street'))
@@ -23,8 +23,8 @@ class inquiry_from(http.Controller):
         proof_id = str(post.get('proof_id'))
         security_no = str(post.get('security_no'))
         employer_name = str(post.get('employer_name'))
-        employer_income = int(post.get('employer_income'))
-        account_no = int(post.get('account_no'))
+        employer_income = str(post.get('employer_income'))
+        account_no = str(post.get('account_no'))
         ifsc_code = str(post.get('ifsc_code'))
         notes = str(post.get('notes'))
         
@@ -33,7 +33,7 @@ class inquiry_from(http.Controller):
                 'security_no':security_no,'employer_name':employer_name,'employer_income':employer_income,
                 'account_no':account_no,'ifsc_code':ifsc_code,'notes':notes}
 
-        new_rec = request.env['emp.inquiry'].create(vals)
+        new_rec = request.env['emp.inquiry'].sudo().create(vals)
 
         print ('\n\n\n new_rec----------------------->',new_rec)
 

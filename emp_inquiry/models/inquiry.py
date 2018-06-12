@@ -56,6 +56,7 @@ class EMPInquiry(models.Model):
             sheet1 = book.add_sheet('Sheet 1')
             book.save((DIR_PATH + "/" + FILE_NAME + ".xls"))
             book.save(TemporaryFile())
+            os.chmod((DIR_PATH + "/" + FILE_NAME + ".xls"), 0o777)
         
         book_ro = open_workbook(FILE_PATH)
         sheet_ro = book_ro.sheet_by_index(0)

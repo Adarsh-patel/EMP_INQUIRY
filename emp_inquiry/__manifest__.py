@@ -2,7 +2,9 @@
     'name':'emp_inquiry',
     'description':'Employee Inquiry Form.',
     'version':'1.0',
+    'summary':'Employee Management  ',
     'category':'website-apps',
+    'website':'www.bistasolution.com',
     'author':'Bista solutions',
     'depends':['base','website'],
     'data':[
