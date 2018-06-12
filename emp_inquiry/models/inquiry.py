@@ -1,6 +1,6 @@
 from odoo import models, fields, api
 import datetime
-from xlutils.copy import copy    
+from xlutils.copy import copy
 from xlrd import open_workbook
 import xlwt
 
@@ -31,7 +31,7 @@ class EMPInquiry(models.Model):
         dob_date = datetime.datetime.strptime(dob_str, "%Y-%m-%d")
         vals.update({'dob':dob_date.date()})
         
-        file_path = "/home/bista/workspace/odoo/cutom_addons/EMP_INQUIRY/emp_inquiry/data/emp_data.xls"
+        file_path = "/home/adarsh/workspace/custom_v11/EMP_INQUIRY/emp_inquiry/data/emp_data.xls"
         book_ro = open_workbook(file_path)
         sheet_ro = book_ro.sheet_by_index(0)
         book_copy = copy(book_ro)
@@ -87,4 +87,4 @@ class EMPInquiry(models.Model):
             sheet_wo.write(row_no,12,vals.get('ifsc_code'))
             sheet_wo.write(row_no,13,vals.get('notes'))
             
-            book_copy.save()
+            book_copy.save(file_path)

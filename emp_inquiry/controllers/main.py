@@ -37,4 +37,4 @@ class inquiry_from(http.Controller):
 
         print ('\n\n\n new_rec----------------------->',new_rec)
 
-        return ('THANKS FOR INQUIRY.')
+        return request.render('emp_inquiry.inquiry_done')

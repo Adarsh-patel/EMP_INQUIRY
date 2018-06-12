@@ -13,20 +13,19 @@
                             </h1>
                         </div>
                         <div class="panel-body text-center">
-                            <form class="form-style col-md-12" action="/page/create_inquiry" method="post">
+                            <form class="form-style col-xs-12" action="/page/create_inquiry" method="post">
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Customer No:-</label>
-                                    <div class="col-sm-6">
-                                        <input id="customer_no" name="customer_no" type="number" class="form-control"
-                                               placeholder="Number..." required="True" pattern="^[0-9]+[0-9]${7}"/>
+                                    <label class="control-label col-sm-2">Customer No</label>
+                                    <div class="col-xs-6">
+                                        <input id="customer_no" name="customer_no" type="number" class="form-control" placeholder="Number..." required="True" pattern="^[0-9]+[0-9]${7}"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Name:-</label>
+                                    <label class="control-label col-sm-2">Name</label>
                                     <div class="col-sm-3">
                                         <input id="first_name" name="first_name" class="form-control align-left"
-                                               placeholder="First Name" required="True" pattern="^[A-Za-z]+[a-zA-Z]$"/>
+                                               placeholder="First Name" required="True" pattern="^[A-Za-z]+[a-zA-Z]$" title="Please enter a character"/>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="last_name" name="last_name" class="form-control align-right"
@@ -34,7 +33,7 @@
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Address:-</label>
+                                    <label class="control-label col-sm-2">Address</label>
                                     <div class="col-sm-6">
                                         <input id="street" name="street" class="form-control" placeholder="Street" required="True"/>
                                     </div><br/>
@@ -49,58 +48,58 @@
                                     </div>
                                 </div><br/><br/><br/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Date Of Birth:-</label>
+                                    <label class="control-label col-sm-2">Date Of Birth</label>
                                     <div class="col-sm-6">
                                         <input id="dob" name="dob" type="date" class="form-control" placeholder="Birth Date" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Proof ID:-</label>
+                                    <label class="control-label col-sm-2">Proof ID</label>
                                     <div class="col-sm-6">
                                         <input id="proof_id" name="proof_id" type="text" class="form-control" placeholder="Id" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Security No:-</label>
+                                    <label class="control-label col-sm-2">Security No</label>
                                     <div class="col-sm-6">
-                                        <input id="security_no" name="security_no" pattern="[0-9]{9}" type="text"
+                                        <input id="security_no" name="security_no" pattern="^[0-9]${9}" type="number"
                                                class="form-control" placeholder="Security no" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Employer Name:-</label>
+                                    <label class="control-label col-sm-2">Employer Name</label>
                                     <div class="col-sm-6">
                                         <input id="employer_name" name="employer_name" type="text" class="form-control" placeholder="Employer Name" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Employer Income:-</label>
+                                    <label class="control-label col-sm-2">Income</label>
                                     <div class="col-sm-6">
-                                        <input id="employer_income" name="employer_income" type="text" class="form-control" placeholder="Employer Income" required="True"/>
+                                        <input id="employer_income" name="employer_income" type="text" class="form-control" placeholder="Employee Income" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2"></label>
-                                    <div class="col-sm-3">
+                                    <div class="col-xs-6">
                                         <h4><strong>Bank Details</strong></h4>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Account No:-</label>
+                                    <label class="control-label col-sm-2">Account No</label>
                                     <div class="col-sm-6">
                                         <input id="account_no" name="account_no" type="text" class="form-control"
                                                placeholder="Account No" required="True" pattern="^[0-9]+[0-9]$"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">IFSC Code:-</label>
+                                    <label class="control-label col-sm-2">IFSC Code</label>
                                     <div class="col-sm-6">
                                         <input id="ifsc_code" name="ifsc_code" type="text" class="form-control"
                                                placeholder="IFSC Code" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Notes:-</label>
+                                    <label class="control-label col-sm-2">Notes</label>
                                     <div class="col-sm-6">
                                         <input id="notes" name="notes" type="text" class="form-control" placeholder="Notes" required="True"/>
                                     </div>
@@ -116,6 +115,23 @@
                             </form>
                         </div>
                     </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="inquiry_done">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1 class="text-center">Thank You!</h1>
+                                    <h3 class="text-muted text-center">For visit the website and for Inquiry. </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </t>
         </template>
