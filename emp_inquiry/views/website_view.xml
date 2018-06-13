@@ -50,7 +50,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Date Of Birth</label>
                                     <div class="col-sm-6">
-                                        <input id="dob" name="dob" type="date" class="form-control" placeholder="Birth Date" required="True"/>
+                                        <input id="dob" name="dob" type="date" class="form-control" default="time.strftime('%d/%m/%Y) " placeholder="Birth Date" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
@@ -61,8 +61,14 @@
                                 </div><br/><br/>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2">Security No</label>
-                                    <div class="col-sm-6">
-                                        <input id="security_no" name="security_no" pattern="^[0-9]${9}" class="form-control" placeholder="Security no" required="True"/>
+                                    <div class="col-sm-2">
+                                        <input id="security_no1" MaxLength="3" onkeyup="movefocus(this,'security_no2')" name="security_no" pattern="^[0-9]${9}" class="form-control" placeholder="Security no" required="True"/>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input id="security_no2" MaxLength="3" onkeyup="movefocus(this,'security_no3')" name="security_no" pattern="^[0-9]${9}" class="form-control" placeholder="Security no" required="True"/>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input id="security_no3" MaxLength="3" name="security_no" pattern="^[0-9]${9}" class="form-control" placeholder="Security no" required="True"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">

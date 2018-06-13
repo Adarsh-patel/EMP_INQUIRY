@@ -27,12 +27,12 @@ odoo.define('emp_inquiry.Form_validation',function(require){
                 e.preventDefault();
             }
         });
-//        $("#first_name").focusout(function(){
-//            if(this.val() < 1){
-//                $(this).css('border','2px solid red');
-//            }
-//
-//        });
+        $("#first_name").focusout(function(){
+            var first_name=$('#first_name').val();
+            if (first_name.length < 1){
+                $(this).css('border','2px solid red');
+            }
+        });
         $("#last_name").keypress(function(e){
             var last_name=$('#last_name').val();
             console.log('before if last_name',last_name);
@@ -45,7 +45,10 @@ odoo.define('emp_inquiry.Form_validation',function(require){
             }
         });
         $("#last_name").focusout(function(){
-            $(this).css('border','2px solid red');
+            var last_name=$('#last_name').val();
+            if (last_name.length < 1){
+                $(this).css('border','2px solid red');
+            }
         });
         $("#street").focusout(function(){
             var street=$('#street').val();
@@ -93,18 +96,67 @@ odoo.define('emp_inquiry.Form_validation',function(require){
             }
         });
 
-        $("#security_no").keypress(function(){
-            var security_no=$('#security_no').val();
-            console.log('before if employer_income',security_no.length);
+        $("#security_no1").keypress(function(e){
+            var security_no1=$('#security_no1').val();
+            console.log('before if security_no1',security_no1.length);
             if(e.keyCode >= 48 && e.keyCode <= 57){
-                console.log('after if first_name',security_no);
+                console.log('after if security_no1',security_no1);
                 $(this).css('border','2px solid #ccc');
             }
             else{
                 e.preventDefault();
             }
         });
-        $("#employer_income").keypress(function(){
+        $("#security_no2").keypress(function(e){
+            var security_no2=$('#security_no2').val();
+            console.log('before if security_no2',security_no2.length);
+            if(e.keyCode >= 48 && e.keyCode <= 57){
+                console.log('after if security_no2',security_no2);
+                $(this).css('border','2px solid #ccc');
+            }
+            else{
+                e.preventDefault();
+            }
+        });
+        $("#security_no3").keypress(function(e){
+            var security_no3=$('#security_no3').val();
+            console.log('before if security_no3',security_no3.length);
+            if(e.keyCode >= 48 && e.keyCode <= 57){
+                console.log('after if security_no3',security_no3);
+                $(this).css('border','2px solid #ccc');
+            }
+            else{
+                e.preventDefault();
+            }
+        });
+        $("#security_no1").focusout(function(){
+            var security_no1=$('#security_no1').val();
+            if (security_no1.length < 1){
+                $(this).css('border','2px solid red');
+            }
+        });
+        $("#security_no2").focusout(function(){
+            var security_no2=$('#security_no2').val();
+            if (security_no2.length < 1){
+                $(this).css('border','2px solid red');
+            }
+        });
+        $("#security_no3").focusout(function(){
+            var security_no3=$('#security_no3').val();
+            if (security_no3.length < 1){
+                $(this).css('border','2px solid red');
+            }
+        });
+        $("#employer_name").focusout(function(){
+            var employer_name=$('#employer_name').val();
+            console.log('employer_name',employer_name.length);
+            if(employer_name.length < 1){
+                $(this).css('border','2px solid red');
+            }else{
+                $(this).css('border','2px solid #ccc');
+            }
+        });
+        $("#employer_income").keypress(function(e){
             var employer_income=$('#employer_income').val();
             console.log('before if employer_income',employer_income.length);
             if(e.keyCode >= 48 && e.keyCode <= 57){
@@ -115,5 +167,52 @@ odoo.define('emp_inquiry.Form_validation',function(require){
                 e.preventDefault();
             }
         });
+        $("#employer_income").focusout(function(){
+            var employer_income=$('#employer_income').val();
+            if (employer_income.length < 1){
+                $(this).css('border','2px solid red');
+            }
+        });
+        $("#account_no").keypress(function(e){
+            var account_no=$('#account_no').val();
+            console.log('before if account_no',account_no.length);
+            if(e.keyCode >= 48 && e.keyCode <= 57){
+                console.log('after if first_name',first_name);
+                $(this).css('border','2px solid #ccc');
+            }
+            else{
+                e.preventDefault();
+            }
+        });
+        $("#account_no").focusout(function(){
+            var account_no=$('#account_no').val();
+            if (account_no.length < 1){
+                $(this).css('border','2px solid red');
+            }
+        });
+        $("#ifsc_code").focusout(function(){
+            var ifsc_code=$('#ifsc_code').val();
+            console.log('ifsc_code',ifsc_code.length);
+            if(ifsc_code.length < 1){
+                $(this).css('border','2px solid red');
+            }else{
+                $(this).css('border','2px solid #ccc');
+            }
+        });
+        $("#notes").focusout(function(){
+            var notes=$('#notes').val();
+            console.log('notes',notes.length);
+            if(notes.length < 1){
+                $(this).css('border','2px solid red');
+            }else{
+                $(this).css('border','2px solid #ccc');
+            }
+        });
+
+        function movefocus(from, to){
+            var len = from.val.length;
+            console.log("hello testing length",len)
+        }
+
     });
 });
