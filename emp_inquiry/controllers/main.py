@@ -30,7 +30,7 @@ class inquiry_from(http.Controller):
         
         vals = {'customer_no':customer_no,'first_name':first_name,'last_name':last_name,
                 'street':street,'city':city,'country':country,'dob':dob,'proof_id':proof_id,
-                'security_no':security_no,'employer_name':employer_name,'employer_income':employer_income,
+                'security_no':security_no,'employer_name':employer_name,'employer_income':float(employer_income),
                 'account_no':account_no,'ifsc_code':ifsc_code,'notes':notes}
 
         new_rec = request.env['emp.inquiry'].sudo().create(vals)

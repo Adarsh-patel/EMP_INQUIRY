@@ -13,7 +13,7 @@ class EMPInquiry(models.Model):
     
     _description = 'Employees Inquiry'
     
-    customer_no = fields.Integer(string='Customer No.', required=True)
+    customer_no = fields.Char(string='Customer No.', required=True)
     first_name = fields.Char(string='First Name', index=True, required=True)
     last_name = fields.Char(string='Last Name', required=True)
     street = fields.Char(string='Street', required=True)
@@ -23,8 +23,8 @@ class EMPInquiry(models.Model):
     proof_id = fields.Char(string='Proof ID', required=True)
     security_no = fields.Char(string='Security No.', required=True)
     employer_name = fields.Char(string='Employer Name', required=True)
-    employer_income = fields.Integer(string='Employer Income', required=True)
-    account_no = fields.Integer(string='Account No.', required=True)
+    employer_income = fields.Float(string='Employer Income', required=True)
+    account_no = fields.Char(string='Account No.', size=18, required=True)
     ifsc_code = fields.Char(string='IFSC CODE', required=True)
     notes = fields.Text(string="Notes", required=True)
     
@@ -67,7 +67,7 @@ class EMPInquiry(models.Model):
             style_string = "font: bold on; borders: bottom dashed"
             cust_style = xlwt.easyxf(style_string)
             sheet_wo.write(row_no, 0, 'Customer No', style = cust_style)
-            sheet_wo.write(row_no, 1, 'First Name', style = cust_style)
+            shee_date_namet_wo.write(row_no, 1, 'First Name', style = cust_style)
             sheet_wo.write(row_no, 2, 'Last Name', style = cust_style)
             sheet_wo.write(row_no, 3, 'Street', style = cust_style)
             sheet_wo.write(row_no, 4, 'City', style = cust_style)
@@ -123,6 +123,7 @@ class FileConfiguration(models.Model):
 
     _name = "emp.inquiry.file.config"
     _description = 'Employees Inquiry file configurations'
+    _rec_name = 'config_name'
     
     config_name = fields.Char(string="Configuration Name", required=True)
     config_date = fields.Date(string='Last Updated', default=fields.Date.context_today)
@@ -143,6 +144,8 @@ class FileConfiguration(models.Model):
                     raise ValidationError(_('One Configuration is already Active, please First DeActive it.'))
         
         active_val = vals.get('active_file')
+        self.create_file(vals.get('file_path'), vals.get('file_name'))
+        
         result = super(FileConfiguration, self).create(vals)
         return result
     
@@ -155,6 +158,15 @@ class FileConfiguration(models.Model):
                 if rec.active_file:
                     raise ValidationError(_('One Configuration is already Active, please First DeActive it.'))
         
+        if vals.get('file_path') and vals.get('file_name'):
+           self.create_file(vals.get('file_path'), vals.get('file_name'))
+        elif  vals.get('file_path') and not vals.get('file_name'):
+            for rec in self:
+                self.create_file(vals.get('file_path'), rec.file_name)
+        elif not vals.get('file_path') and vals.get('file_name'):
+            for rec in self:
+                self.create_file(rec.file_path, vals.get('file_name'))
+            
         result = super(FileConfiguration, self).write(vals)
         return result
 
@@ -190,7 +202,20 @@ class FileConfiguration(models.Model):
                          file_name = DEFAULT_FILE_NAME, active_file = DEFAULT_ACTIVE))
         
       
+    
+    def create_file(self, file_path, file_name):
+        if not os.path.isdir(file_path):
+                raise ValidationError(_('No such Directory Exist.'))
         
+        FILE_PATH = file_path + "/" + file_name + ".xls"
+        if not os.path.exists(FILE_PATH):
+            print("Warning : File Creating..!!")
+            book = xlwt.Workbook()
+            sheet1 = book.add_sheet('Sheet 1')
+            os.chmod((FILE_PATH), 0o777)
+            book.save((FILE_PATH))
+            book.save(TemporaryFile())
+                  
     def get_deafult_dir_path(self):
         LOCATE_PY_DIRECTORY_PATH = os.path.abspath(os.path.dirname(__file__))
         PARENT_DIR_PATH = os.path.abspath(os.path.join(LOCATE_PY_DIRECTORY_PATH, os.pardir))
